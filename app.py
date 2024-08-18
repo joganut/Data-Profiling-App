@@ -78,8 +78,8 @@ def main():
         #                 st.error("❌ Error generating the report.")
         #     else:
         #         st.error("⚠️ Loaded file is empty or invalid.")
-        # except Exception as ex:
-        #     st.error(f"❌ Error loading CSV file: {str(ex)}")
+        except Exception as ex:
+            st.error(f"❌ Error loading CSV file: {str(ex)}")
 
 if __name__ == "__main__":
     main()
