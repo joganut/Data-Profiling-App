@@ -13,9 +13,6 @@ def generate_report(df, minimal, dark_mode):
         st.error(f"Error generating report: {str(ex)}")
         return None
 
-def convert_html_to_base64(html_content):
-    return base64.b64encode(html_content.encode()).decode()
-
 def display_custom_css():
     st.markdown(
         """
@@ -62,22 +59,19 @@ def main():
                         st.success("📊 Report is ready!")
                         st.components.v1.html(report_html, height=800, scrolling=True)
                         
-                        # Convert HTML to base64
-                        b64_html = convert_html_to_base64(report_html)
-                        
-        #                 # Add download button
-        #                 if st.download_button(
-        #                     label="📥 Download the report",
-        #                     data=b64_html,
-        #                     file_name="data_profile.html",
-        #                     mime="text/html",
-        #                     key="download_button"
-        #                 ):
-        #                     st.success("📥 Report is being downloaded!")
-        #             else:
-        #                 st.error("❌ Error generating the report.")
-        #     else:
-        #         st.error("⚠️ Loaded file is empty or invalid.")
+                        # Add download button with HTML content directly
+                        if st.download_button(
+                            label="📥 Download the report",
+                            data=report_html,  # Directly use HTML content
+                            file_name="data_profile.html",
+                            mime="text/html",
+                            key="download_button"
+                        ):
+                            st.success("📥 Report is being downloaded!")
+                    else:
+                        st.error("❌ Error generating the report.")
+            else:
+                st.error("⚠️ Loaded file is empty or invalid.")
         except Exception as ex:
             st.error(f"❌ Error loading CSV file: {str(ex)}")
 
