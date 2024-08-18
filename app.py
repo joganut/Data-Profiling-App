@@ -65,21 +65,21 @@ def main():
                         # Convert HTML to base64
                         b64_html = convert_html_to_base64(report_html)
                         
-                        # Add download button
-                        if st.download_button(
-                            label="📥 Download the report",
-                            data=b64_html,
-                            file_name="data_profile.html",
-                            mime="text/html",
-                            key="download_button"
-                        ):
-                            st.success("📥 Report is being downloaded!")
-                    else:
-                        st.error("❌ Error generating the report.")
-            else:
-                st.error("⚠️ Loaded file is empty or invalid.")
-        except Exception as ex:
-            st.error(f"❌ Error loading CSV file: {str(ex)}")
+        #                 # Add download button
+        #                 if st.download_button(
+        #                     label="📥 Download the report",
+        #                     data=b64_html,
+        #                     file_name="data_profile.html",
+        #                     mime="text/html",
+        #                     key="download_button"
+        #                 ):
+        #                     st.success("📥 Report is being downloaded!")
+        #             else:
+        #                 st.error("❌ Error generating the report.")
+        #     else:
+        #         st.error("⚠️ Loaded file is empty or invalid.")
+        # except Exception as ex:
+        #     st.error(f"❌ Error loading CSV file: {str(ex)}")
 
 if __name__ == "__main__":
     main()
