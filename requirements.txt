@@ -1,4 +1,4 @@
-streamlit==1.18.0
-pandas==2.0.0
-ydata-profiling==4.0.0
-setuptools==67.0.0
+streamlit==1.25.0
+pandas==2.1.1
+ydata-profiling==4.3.0
+setuptools==68.1.2
